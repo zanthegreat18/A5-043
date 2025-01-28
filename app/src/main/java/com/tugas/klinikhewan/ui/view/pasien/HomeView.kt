@@ -81,9 +81,7 @@ fun HomeScreen(
                 title = Home.titleRes,
                 canNavigateBack = false,
                 scrollBehavior = scrollBehavior,
-                onRefresh = {
-                    viewModel.getPsn()
-                }
+                profileImage = painterResource(id = R.drawable.cat)
             )
         },
         bottomBar = {
@@ -107,9 +105,6 @@ fun HomeScreen(
         )
     }
 }
-
-
-
 
 @Composable
 fun CustomBottomBar(
