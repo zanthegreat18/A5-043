@@ -5,6 +5,11 @@ interface DestinasiNavigasi {
     val titleRes: String
 }
 
+object Screen : DestinasiNavigasi {
+    override val route = "home"
+    override val titleRes = "Home"
+}
+
 object Home : DestinasiNavigasi {
     override val route = "Daftar Pasien"
     override val titleRes = "Data Pasien"
@@ -79,7 +84,6 @@ object DestinasiDetailPerawatan : DestinasiNavigasi{
     const val idPERAWATAN = "idperawatan"
     val routeWithArg = "$route/{$idPERAWATAN}"
 }
-
 
 object UpdateJenis: DestinasiNavigasi {
     override val route = "update jenis"
