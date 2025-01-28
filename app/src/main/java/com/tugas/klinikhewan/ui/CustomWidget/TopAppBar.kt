@@ -39,7 +39,7 @@ fun CustomedTopAppBar(
 ) {
     Box(
         modifier = modifier
-            .clip(RoundedCornerShape(bottomStart = 16.dp, bottomEnd = 16.dp))
+            .clip(RoundedCornerShape(bottomStart = 25.dp, bottomEnd = 25.dp))
     ) {
         // TopAppBar background
         CenterAlignedTopAppBar(
