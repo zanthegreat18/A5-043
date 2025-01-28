@@ -64,7 +64,6 @@ import com.tugas.klinikhewan.ui.viewmodel.perawatan.HomePrwtnUiState
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomePerawatnScreen(
-    navigateToAdd: () -> Unit,
     navigateToBack: () -> Unit,
     onDetailClickPerawatan: (String) -> Unit,
     modifier: Modifier = Modifier,
@@ -86,7 +85,6 @@ fun HomePerawatnScreen(
         },
         bottomBar = {
             CustomBottomBarPrwtn(
-                navigateToAdd = navigateToAdd,
                 navigateToBack = navigateToBack,
             )
         },
@@ -107,7 +105,6 @@ fun HomePerawatnScreen(
 
 @Composable
 fun CustomBottomBarPrwtn(
-    navigateToAdd: () -> Unit,
     navigateToBack: () -> Unit,
 ) {
     BottomAppBar(
@@ -124,11 +121,6 @@ fun CustomBottomBarPrwtn(
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically
         ) {
-
-            IconButtonWithRoundedBackground(
-                iconRes = R.drawable.baseline_add_box_24,
-                onClick = navigateToAdd
-            )
             IconButtonWithRoundedBackground(
                 iconRes = R.drawable.sharp_arrow_back_ios_new_24,
                 onClick = navigateToBack
