@@ -8,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.tugas.klinikhewan.ui.CustomWidget.Screen1
 import com.tugas.klinikhewan.ui.view.dokter.DetailDokterScreen
 import com.tugas.klinikhewan.ui.view.dokter.EntryDokterScreen
 import com.tugas.klinikhewan.ui.view.dokter.HomeDokterScreen
@@ -29,9 +30,20 @@ import com.tugas.klinikhewan.ui.view.perawatan.UpdatePerawatanScreen
 fun PengelolaHalaman(navController: NavHostController = rememberNavController()) {
     NavHost(
         navController = navController,
-        startDestination = Home.route,
+        startDestination = Screen.route,
         modifier = Modifier,
     ){
+
+        composable(Screen.route){
+            Screen1(onNavigate = {
+                navController.navigate(Home.route) {
+                    popUpTo(Screen.route) {
+                        inclusive = true
+                    }
+                }
+            }
+            )
+        }
         composable(Home.route){
             HomeScreen(
                 navigateToEntry = { navController.navigate(AddPasien.route) },
@@ -204,12 +216,6 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
         }
         composable(HomePerawatan.route){
             HomePerawatnScreen(
-                navigateToAdd = { navController.navigate(AddPerawatan.route) {
-                    popUpTo(HomePerawatan.route) {
-                        inclusive = true
-                    }
-                }
-                },
                 onDetailClickPerawatan = { idperawatan ->
                     navController.navigate("${DestinasiDetailPerawatan.route}/$idperawatan")
                 },
